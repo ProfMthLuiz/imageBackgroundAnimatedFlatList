@@ -1,6 +1,8 @@
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import CircularCarousel from "./src/components/CircularCarousel";
+import { Image } from "expo-image"; // Importação do expo-image
 
 const data = [
   require("./src/assets/images/image_1.jpg"),
@@ -25,5 +27,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

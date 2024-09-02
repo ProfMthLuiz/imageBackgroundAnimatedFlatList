@@ -59,12 +59,19 @@ export default function CircularCarousel({ data }) {
             }
           )}
           contentContainerStyle={{
-            paddingRight: 3 * ListItemWidth,
+            paddingRight: 2 * ListItemWidth,
             justifyContent: "center",
             alignItems: "center",
           }}
-          style={{ position: "absolute", top: 0, height: 300 }}
+          style={{
+            position: "absolute",
+            top: 0,
+            height: "50%",
+            padding: 1,
+          }}
           horizontal
+          initialNumToRender={data.length} // Tenta renderizar todos os itens inicialmente
+          maxToRenderPerBatch={data.length} // Permite renderizar todos os itens
           renderItem={({ item, index }) => (
             <CircularCarouselListItem
               contentOffset={contentOffset}

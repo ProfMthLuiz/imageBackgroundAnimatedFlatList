@@ -10,7 +10,7 @@ import Animated, {
 import React from "react";
 
 const { width: windowWidth } = Dimensions.get("window");
-export const ListItemWidth = windowWidth / 4;
+export const ListItemWidth = windowWidth / 3;
 
 const CircularCarouselListItem = React.memo(
   ({ contentOffset, imageSrc, index }) => {
@@ -25,14 +25,14 @@ const CircularCarouselListItem = React.memo(
 
       const translateYOutputRange = [
         0,
-        ListItemWidth / 4,
+        ListItemWidth / 10,
         ListItemWidth / 2,
-        ListItemWidth / 4,
+        ListItemWidth / 10,
         0,
       ];
 
-      const opacityOutputRange = [0.5, 0.9, 1, 0.9, 0.5];
-      const scaleOutputRange = [0.5, 0.9, 1.2, 0.9, 0.5];
+      const opacityOutputRange = [0.3, 0.4, 1, 0.4, 0.3];
+      const scaleOutputRange = [0.5, 0.7, 1.1, 0.7, 0.5];
 
       const translateY = interpolate(
         contentOffset.value,
@@ -59,7 +59,7 @@ const CircularCarouselListItem = React.memo(
         opacity,
         transform: [
           { translateY },
-          { translateX: ListItemWidth / 2 + ListItemWidth },
+          { translateX: ListItemWidth / 14 + ListItemWidth },
           { scale },
         ],
       };
@@ -71,7 +71,12 @@ const CircularCarouselListItem = React.memo(
           rStyle,
           {
             width: ListItemWidth,
-            aspectRatio: 1,
+            aspectRatio: 0.75,
+            shadowColor: "#ff0000",
+            shadowOffset: { width: 0, height: 0 },
+            shadowOpacity: 0.5,
+            shadowRadius: 30,
+            elevation: 5,
           },
         ]}
       >
@@ -80,9 +85,7 @@ const CircularCarouselListItem = React.memo(
           style={{
             flex: 1,
             margin: 5,
-            borderRadius: 200,
-            borderWidth: 2,
-            borderColor: "#fff",
+            borderRadius: 20,
           }}
         />
       </Animated.View>
